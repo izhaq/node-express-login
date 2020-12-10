@@ -1,0 +1,37 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/server",
+  "scripts": {
+    "start": "npm run build",
+    "build": "tsc --project ./",
+    "dev": "nodemon --watch src/ --exec ts-node ./server.ts -e ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/http-errors": "^1.6.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "^4.16.4",
+    "http-errors": "~1.6.2",
+    "mongodb": "^3.1.10",
+    "monk": "^6.0.6",
+    "morgan": "~1.9.0",
+    "pug": "2.0.0-beta11",
+    "reflect-metadata": "^0.1.12",
+    "typegoose": "^5.4.1"
+  },
+  "devDependencies": {
+    "@types/debug": "0.0.31",
+    "@types/express": "^4.16.0",
+    "@types/mongodb": "^3.1.17",
+    "@types/node": "^10.12.18",
+    "cors": "^2.8.5",
+    "nodemon": "^1.18.9",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.2.2"
+  },
+  "types": "lib/server"
+}
