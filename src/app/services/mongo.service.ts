@@ -1,8 +1,6 @@
 import {User} from "../models/user";
 import {formatUser, formatUsers} from "./user.utils";
-import {appInstance} from "../app";
 import {Db, MongoClient} from "mongodb";
-import {Request, Response} from "express";
 
 const mongoUrl: string = 'mongodb+srv://izhaq:11072017@realmcluster.b9wxi.mongodb.net/Users?retryWrites=true&w=majority';
 const dbName = 'Users';
@@ -40,6 +38,8 @@ export const getUsers = async (connect: Db) => {
 }
 
 export const signup = async (connect: Db, user: Partial<User>) => {
+    const [ email ] = await connect.collection('UserProfile').find({ email: user.email }).toArray();
+    if(email){ return { email: 'Email address exist !', id: -1 } }
     const { insertedId } = await connect.collection('UserProfile').insertOne(user);
-    return insertedId;
+    return { email: user.email, id: insertedId } ;
 }

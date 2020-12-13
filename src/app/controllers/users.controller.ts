@@ -14,7 +14,7 @@ export class UsersController {
     }
 
     public signup (req: Request, res: Response) {
-        this.driver.callDb(signup, req.body).then(( id ) => id ? res.json({ id }):
+        this.driver.callDb(signup, req.body).then(( data ) => data ? res.json({ data }):
             res.status(206).send('wrong !'));
     }
 

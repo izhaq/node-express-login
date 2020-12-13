@@ -4,9 +4,10 @@
   "description": "",
   "main": "lib/server",
   "scripts": {
-    "start": "npm run build",
+    "start": "node ./server.js",
+    "prod": "npm run build",
     "build": "tsc --project ./",
-    "dev": "nodemon --watch src/ --exec ts-node ./server.ts -e ts"
+    "dev": "nodemon --watch src/ --exec ts-node ./src/server.ts -e ts"
   },
   "author": "",
   "license": "ISC",
@@ -27,8 +28,10 @@
     "@types/debug": "0.0.31",
     "@types/express": "^4.16.0",
     "@types/mongodb": "^3.1.17",
+    "@types/mongoose": "^5.3.5",
     "@types/node": "^10.12.18",
     "cors": "^2.8.5",
+    "mongoose": "^5.4.0",
     "nodemon": "^1.18.9",
     "ts-node": "^7.0.1",
     "typescript": "^3.2.2"

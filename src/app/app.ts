@@ -9,7 +9,6 @@ class App {
   readonly appConfig: express.Application;
   public routes: AppRoutes = new AppRoutes();
   public mongoUrl: string = 'mongodb+srv://izhaq:11072017@realmcluster.b9wxi.mongodb.net/Users?retryWrites=true&w=majority';
-  private dbClient: MongoClient;
 
   constructor() {
     this.appConfig = express();
@@ -42,16 +41,6 @@ class App {
       next();
     });
     this.appConfig.options('*', function (req,res) { res.sendStatus(200); });
-  }
-
-  public async getMongoSetup() {
-    const dbClient = new MongoClient(this.mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true });
-    try {
-      await dbClient.connect();
-      return dbClient;
-    } catch (e) {
-      console.error(e);
-    }
   }
 
   public getAppConfigs(): Application {
